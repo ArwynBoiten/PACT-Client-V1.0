@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar color="primaryDark">
+    <ion-title *ngIf="showProfilePreset">Select Profile</ion-title>
+    <ion-title *ngIf="!showProfilePreset">Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding>
+  <div align="center" *ngIf="showProfilePreset">
+    <div *ngFor="let person of personList">
+      <button color="secondary" ion-button block (click)="choosePerson(person)">{{person.name}}</button>
+    </div>
+  </div>
+
+  <ion-card class="full-width-card personal-info" *ngIf="!showProfilePreset" no-margin>
+    <div align="center" *ngIf="!showProfilePreset">
+      <img class="profile-image" src="assets/imgs/profile.png">
+      <BR>
+      <p class="person-name">{{selectedPerson.name}}</p>
+    </div>
+  </ion-card>
+
+  <ion-card class="full-width-card wallet-info" *ngIf="!showProfilePreset" no-margin>
+    <div align="left">
+      <p class="small-header">Wallet:</p>
+      <p class="small-info" style="font-size: 10pt">{{selectedPerson.publicKey}}</p>
+    </div>
+  </ion-card>
+</ion-content>

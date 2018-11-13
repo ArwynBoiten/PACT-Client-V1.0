@@ -1,0 +1,195 @@
+join-contract {
+
+  $primary: #0ea3ff;
+  $secondary: #0d74b7;
+  $primary-background-color: #0d74b7;
+  $primary-text-color: #0d74b7;
+  $secondary-background-color: #0ea3ff;
+  $header-background-color: #28434f;
+
+  .session-card,
+  .margin-top-card {
+    margin-top: 44px;
+  }
+
+
+  .session-code-card {
+    padding: 25px 0 25px 0;
+    width: 100%;
+    background-color: $secondary;
+  }
+
+  .session-button-card {
+    width: 100%;
+    .button {
+      margin: 0;
+      border-radius: 0;
+      font-weight: 900;
+      background-color: $primary;
+    }
+  }
+
+  .card-ios {
+    width: 100%;
+  }
+
+  .code-inputs {
+    margin: 10px 20px 10px 0;
+  }
+
+  .col {
+    width: auto;
+
+    input {
+      text-align: center;
+      color: white;
+      font-weight: 900;
+      width: 40px;
+      height: 40px;
+      font-size: 16pt;
+      border-radius: 10px;
+      border: 1px solid white;
+      background-color: $secondary;
+    }
+
+
+
+  }
+
+  .input-header {
+    color: white;
+    text-align: center;
+    margin: 0;
+  }
+
+  .session-card {
+    background-color: $primary-background-color;
+    padding: 10px;
+
+
+    p {  color: white;  }
+
+    .session-code {
+      font-size: 20pt;
+      letter-spacing: 3px;
+      color: white;
+    }
+  }
+
+  .create-button {
+    position: absolute;
+    bottom: 44px;
+    height: 50px;
+    background-color: $secondary-background-color;
+    color: white;
+    font-weight: 900;
+  }
+
+  .contract-info-card {
+    padding: 10px;
+    background-color: $secondary-background-color;
+
+    ion-card-header {
+      padding: 0 0 15px 0;
+      color: white;
+    }
+
+    ion-card-content {
+      padding: 0 0 5px 0;
+
+      p{
+        color: white;
+        padding: 0;
+      }
+
+      .label {
+        font-size: 8pt;
+      }
+    }
+  }
+
+  .member-card {
+    padding-top: 15px;
+    background-color: $secondary-background-color;
+
+    ion-card-header{
+      padding: 0 0 15px 0;
+      color: white;
+    }
+
+    ion-card-content {
+      background-color: white;
+      padding: 0;
+      border-bottom: 1px solid $secondary-background-color;
+
+      p {
+        padding-top: 5px;
+        color: $primary-text-color;
+      }
+      .role-title {
+        font-size: 8pt;
+        padding-bottom: 5px;
+      }
+    }
+  }
+
+  .contract-card {
+    background-color: $primary-background-color;
+    padding: 10px;
+
+
+    p {  color: white;  }
+
+
+  }
+
+  .accepted-members {
+    color: white;
+    padding: 10px;
+  }
+
+  .contract-card {
+    margin-top: 45px;
+  }
+
+  .status-card {
+    background-color: $secondary-background-color;
+    position: absolute;
+    bottom: 0;
+    padding: 10px 10px 10px 10px;
+    height: 200px;
+
+    ion-card-header {
+      font-weight: 200;
+      color: white;
+    }
+
+    ion-card-content .loader {
+      position: relative;
+      left:40%;
+      margin-top: 25px;
+      height: 100px;
+      width: 100px;
+    }
+  }
+
+  .loading-card {
+    background-color: $secondary-background-color;
+    height: 100%;
+
+    ion-card-header {
+      margin-top: 45px;
+      font-weight: 200;
+      font-size: 20pt;
+      color: white;
+    }
+
+    ion-card-content .loader {
+      position: relative;
+      left:10%;
+      margin-top: 25px;
+      height: 300px;
+      width: 300px;
+    }
+  }
+}

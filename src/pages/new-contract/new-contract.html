@@ -1,0 +1,144 @@
+<!--
+  Generated template for the NewContractPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primaryDark">
+    <ion-title>Contract Session</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- INPUT SCREEN -->
+  <ion-card no-margin *ngIf="currentScreen == 'input'">
+    <ion-list>
+      <ion-item *ngIf="presets">
+        <ion-label color="primary" stacked>Contract type</ion-label>
+        <ion-select [(ngModel)]="session.preset" placeholder="No Selection">
+          <ion-option *ngFor="let preset of presets" [value]="preset.template">{{preset.template.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item *ngIf="session.preset">
+        <ion-label color="primary" stacked>Role</ion-label>
+        <ion-select [(ngModel)]="member.role" placeholder="No Selection">
+          <ion-option *ngFor="let role of session.preset.roles" [value]="role">{{role.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <div *ngFor="let field of member.role?.fields">
+        <!-- MAKE OBJECT FIELDS -->
+        <div *ngIf="member.role && field.type == 'object'">
+          <ion-item *ngFor="let field of field.fields">
+            <ion-label color="primary" stacked>{{field.label}}</ion-label>
+            <ion-input type="{{field.type}}" [(ngModel)]="field.data"></ion-input>
+          </ion-item>
+        </div>
+
+        <!-- MAKE NORMAL FIELDS -->
+        <ion-item *ngIf="member.role && field.type != 'object'">
+          <ion-label color="primary" stacked>{{field.label}}</ion-label>
+          <ion-input type="{{field.type}}" [(ngModel)]="field.data"></ion-input>
+        </ion-item>
+      </div>
+
+      <button margin-top ion-button color="secondary" (click)="createSessionListener()">Create session</button>
+    </ion-list>
+  </ion-card>
+
+  <!-- SESSION SCREEN -->
+  <div *ngIf="currentScreen == 'lobby' && session.preset" align="center">
+    <ion-card no-margin class="session-card">
+      <div class="row" style="text-align: center">
+        <div class="col col-10 col-offset-15">
+          <p>Session ID</p>
+          <p class="session-code">{{session.id}}</p>
+        </div>
+      </div>
+    </ion-card>
+    <ion-card no-margin class="contract-info-card">
+      <ion-card-header>Contract</ion-card-header>
+
+      <ion-card-content>
+        <p class="label">Type</p>
+        <p>{{session.preset.name}}</p>
+      </ion-card-content>
+
+      <ion-card-content>
+        <p class="label">Description</p>
+        <p>{{session.preset.description}}</p>
+      </ion-card-content>
+    </ion-card>
+
+    <BR/>
+    <BR/>
+
+    <ion-card no-margin class="member-card">
+      <ion-card-header>Members ({{memberCount()}}/{{session.preset.member_limit}})</ion-card-header>
+
+      <div *ngFor="let member of session.members">
+        <ion-card-content>
+          <p>{{member.name}}</p>
+          <p class="role-title">{{member.role.name}}</p>
+        </ion-card-content>
+      </div>
+
+    </ion-card>
+
+    <button ion-button full class="create-button" (click)="generateContract()">Genereer Contract</button>
+  </div>
+
+  <!-- CONTRACT SCREEN -->
+  <div *ngIf="currentScreen == 'contract' && session.contract" align="center">
+    <ion-card no-margin class="contract-card">
+      <div class="row" style="text-align: center">
+        <div class="col col-10 col-offset-15">
+          <p>Session ID</p>
+          <p class="session-code">{{session.id}}</p>
+        </div>
+      </div>
+    </ion-card>
+    <ion-card no-margin class="contract-info-card">
+      <ion-card-header>Contract</ion-card-header>
+      <ion-card-content class="contract-row" *ngFor="let contractRow of session.contract.data">
+        <p class="content-row">- {{contractRow}}</p>
+      </ion-card-content>
+    </ion-card>
+    <BR/>
+    <BR/>
+
+    <ion-card no-margin class="member-card">
+      <ion-card-header class="member-header-no-margin">Members</ion-card-header>
+      <div *ngFor="let member of session.contract.members">
+        <ion-card-content>
+          <p>{{member.name}} ({{member.role}})</p>
+          <p class="role-title">{{member.address}}</p>
+        </ion-card-content>
+      </div>
+      <p class="accepted-members">Ondertekend: {{session.contract.agreed}}</p>
+    </ion-card>
+
+    <ion-card no-margin class="status-card" *ngIf="signed">
+      <ion-card-header class="member-header-no-margin">Wachten op ondertekenen van overige leden.</ion-card-header>
+      <ion-card-content>
+        <img class="loader" src="assets/imgs/loader.svg">
+      </ion-card-content>
+    </ion-card>
+
+    <button *ngIf="!signed" ion-button full class="create-button" (click)="signContract()">Onderteken</button>
+  </div>
+
+  <!-- LOADING SCREEN -->
+  <div *ngIf="currentScreen == 'loading'" align="center">
+    <ion-card no-margin class="loading-card">
+      <ion-card-header class="member-header-no-margin">{{status}}...</ion-card-header>
+      <ion-card-content>
+        <img class="loader" src="assets/imgs/loader.svg">
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</ion-content>

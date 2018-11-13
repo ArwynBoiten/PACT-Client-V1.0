@@ -1,0 +1,167 @@
+page-new-contract {
+
+  $primary-background-color: #0d74b7;
+  $primary-text-color: #0d74b7;
+  $secondary-background-color: #0ea3ff;
+  $header-background-color: #28434f;
+
+  .main {
+    background-color: map-get($colors, backgroundDark);
+  }
+
+  ion-label {
+    font-size: 12pt;
+  }
+
+  ion-input, ion-datetime {
+    font-size: 10pt;
+  }
+
+  .card-ios {
+    width: 100%;
+  }
+
+  .item-ios {
+    margin-left: 0;
+    border-bottom: 1px solid map-get($colors, backgroundDark);
+  }
+
+  button {
+    width: 98.5%;
+  }
+
+
+
+  .session-card {
+    background-color: $primary-background-color;
+    padding: 10px;
+
+
+    p {  color: white;  }
+
+    .session-code {
+      font-size: 20pt;
+      letter-spacing: 3px;
+      color: white;
+    }
+  }
+
+  .member-card {
+    padding-top: 15px;
+    background-color: $secondary-background-color;
+
+    ion-card-header{
+      padding: 0 0 15px 0;
+      color: white;
+    }
+
+    ion-card-content {
+      background-color: white;
+      padding: 0;
+      border-bottom: 1px solid $secondary-background-color;
+
+      p {
+        padding-top: 5px;
+        color: $primary-text-color;
+      }
+      .role-title {
+        font-size: 8pt;
+        padding-bottom: 5px;
+      }
+    }
+  }
+
+  .contract-info-card {
+    padding: 10px;
+    background-color: $secondary-background-color;
+
+    ion-card-header {
+      padding: 0 0 15px 0;
+      color: white;
+    }
+
+    ion-card-content {
+      padding: 0 0 5px 0;
+
+      p{
+        color: white;
+        padding: 0;
+      }
+
+      .label {
+        font-size: 8pt;
+      }
+    }
+  }
+
+  .create-button {
+    position: absolute;
+    bottom: 0px;
+    height: 50px;
+    background-color: $secondary-background-color;
+    color: white;
+    font-weight: 900;
+  }
+
+  .member-header-no-margin {
+    padding: 0;
+  }
+
+  .contract-card {
+    background-color: $primary-background-color;
+    padding: 10px;
+
+
+    p {  color: white;  }
+
+
+  }
+
+  .accepted-members {
+    color: white;
+    padding: 10px;
+  }
+
+  .status-card {
+    background-color: $secondary-background-color;
+    position: absolute;
+    bottom: 0;
+    padding: 10px 10px 10px 10px;
+    height: 200px;
+
+    ion-card-header {
+      font-weight: 200;
+      color: white;
+    }
+
+    ion-card-content .loader {
+      margin-top: 25px;
+      height: 100px;
+      width: 100px;
+    }
+  }
+
+  .loading-card {
+    background-color: $secondary-background-color;
+    height: 100%;
+
+    ion-card-header {
+      margin-top: 45px;
+      font-weight: 200;
+      font-size: 20pt;
+      color: white;
+    }
+
+    ion-card-content {
+      height: 700px;
+    }
+
+    ion-card-content .loader {
+      margin-top: 25px;
+      height: 300px;
+      width: 300px;
+    }
+  }
+
+
+}

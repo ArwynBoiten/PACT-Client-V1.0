@@ -1,0 +1,44 @@
+page-profile {
+  .profile-image{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  }
+
+  .full-width-card {
+    padding: 15px;
+    width: 100%;
+  }
+
+  .personal-info {
+    background-color: #0d74b7;
+
+    p {
+      color: lightblue;
+    }
+  }
+
+  .wallet-info {
+    background-color: #ffffff;
+  }
+
+  .person-name {
+    font-size: 16pt;
+  }
+
+  .person-age {
+    font-size: 14pt;
+  }
+
+  .small-header {
+    font-size: 10pt;
+  }
+
+  .small-info {
+    font-size: 12pt;
+    color: grey;
+  }
+
+}
+
+
